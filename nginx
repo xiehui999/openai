@@ -8,6 +8,6 @@ server {
 
   # 举例9001端口，公众号服务器地址设置为 http://xxx.com/chatgpt/wx; 
   location /chatgpt/ {
-    proxy_pass http://127.0.0.1:8080/;
+    proxy_pass http://127.0.0.1:7890/;
   }
 }
