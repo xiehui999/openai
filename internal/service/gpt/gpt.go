@@ -99,6 +99,7 @@ func completions(isFast bool, msg string, timeout time.Duration) (string, error)
 	req, _ := http.NewRequest("POST", api, bytes.NewReader(bs))
 	req.Header.Add("Content-Type", "application/json")
 	req.Header.Add("Authorization", "Bearer "+config.ApiKey)
+	fmt.Println("req: " + config.ApiKey)
 
 	resp, err := client.Do(req)
 	if err != nil {
