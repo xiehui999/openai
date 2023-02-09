@@ -13,6 +13,7 @@ var (
 )
 
 func init() {
+	fmt.Println("init")
 	flag.StringVar(&ServerPort, "PORT", os.Getenv("PORT"), "服务端口号")
 	flag.StringVar(&ApiKey, "API_KEY", os.Getenv("API_KEY"), "ChatGPT的API_KEY")
 	flag.StringVar(&WxToken, "WX_TOKEN", os.Getenv("WX_TOKEN"), "微信公众号令牌")
