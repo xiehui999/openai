@@ -2,6 +2,10 @@ FROM golang:alpine
 
 WORKDIR /app
 
+COPY nginx /etc/nginx/conf.d/default.conf
+
+COPY . /usr/share/nginx/html
+
 COPY . .
 
 RUN go build -o main .
