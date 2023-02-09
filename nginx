@@ -1,0 +1,13 @@
+server {
+  listen 80;
+  server_name xxx.com;
+
+  location / {
+    # 略
+  }
+
+  # 举例9001端口，公众号服务器地址设置为 http://xxx.com/chatgpt/wx; 
+  location /chatgpt/ {
+    proxy_pass http://127.0.0.1:443/;
+  }
+}
