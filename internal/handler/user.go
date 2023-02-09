@@ -25,7 +25,7 @@ func WechatCheck(w http.ResponseWriter, r *http.Request) {
 	timestamp := query.Get("timestamp")
 	nonce := query.Get("nonce")
 	echostr := query.Get("echostr")
-
+	fmt.Println(signature + "|"+ config.WxToken +"|"+timestamp+"|"+ nonce)
 	// 校验
 	if wechat.CheckSignature(signature, timestamp, nonce, config.WxToken) {
 		w.Write([]byte(echostr))
