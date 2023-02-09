@@ -6,6 +6,7 @@ import (
 	"chatgpt/internal/service/wechat"
 	"context"
 	"io"
+	"fmt"
 	"log"
 	"net/http"
 	"sync"
@@ -18,6 +19,7 @@ var (
 )
 
 func WechatCheck(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("WechatCheck")
 	query := r.URL.Query()
 	signature := query.Get("signature")
 	timestamp := query.Get("timestamp")
@@ -38,6 +40,7 @@ func WechatCheck(w http.ResponseWriter, r *http.Request) {
 func ReceiveMsg(w http.ResponseWriter, r *http.Request) {
 	bs, _ := io.ReadAll(r.Body)
 	msg := wechat.NewMsg(bs)
+	fmt.Println("ReceiveMsg")
 
 	// 非文本不回复(返回success表示不回复)
 	if !msg.IsText() {
@@ -85,6 +88,7 @@ func ReceiveMsg(w http.ResponseWriter, r *http.Request) {
 }
 
 func Test(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Test")
 	msg := r.URL.Query().Get("msg")
 	mode := r.URL.Query().Get("mode")
 	isFast := true
